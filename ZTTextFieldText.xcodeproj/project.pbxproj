@@ -10,7 +10,7 @@
 		A37763CF1FE266FB00C30B33 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A37763CE1FE266FB00C30B33 /* AppDelegate.m */; };
 		A37763D21FE266FB00C30B33 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A37763D11FE266FB00C30B33 /* ViewController.m */; };
 		A37763D51FE266FB00C30B33 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A37763D31FE266FB00C30B33 /* Main.storyboard */; };
-		A37763D71FE266FB00C30B33 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A37763D61FE266FB00C30B33 /* Assets.xcassets */; };
+		A37763D71FE266FB00C30B33 /* image.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A37763D61FE266FB00C30B33 /* image.xcassets */; };
 		A37763DA1FE266FB00C30B33 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A37763D81FE266FB00C30B33 /* LaunchScreen.storyboard */; };
 		A37763DD1FE266FB00C30B33 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = A37763DC1FE266FB00C30B33 /* main.m */; };
 		A37763E51FE2672200C30B33 /* ZTTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = A37763E41FE2672200C30B33 /* ZTTextField.m */; };
@@ -23,7 +23,7 @@
 		A37763D01FE266FB00C30B33 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
 		A37763D11FE266FB00C30B33 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		A37763D41FE266FB00C30B33 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		A37763D61FE266FB00C30B33 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		A37763D61FE266FB00C30B33 /* image.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = image.xcassets; sourceTree = "<group>"; };
 		A37763D91FE266FB00C30B33 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A37763DB1FE266FB00C30B33 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A37763DC1FE266FB00C30B33 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -68,7 +68,7 @@
 				A37763D01FE266FB00C30B33 /* ViewController.h */,
 				A37763D11FE266FB00C30B33 /* ViewController.m */,
 				A37763D31FE266FB00C30B33 /* Main.storyboard */,
-				A37763D61FE266FB00C30B33 /* Assets.xcassets */,
+				A37763D61FE266FB00C30B33 /* image.xcassets */,
 				A37763D81FE266FB00C30B33 /* LaunchScreen.storyboard */,
 				A37763DB1FE266FB00C30B33 /* Info.plist */,
 				A37763DC1FE266FB00C30B33 /* main.m */,
@@ -135,7 +135,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A37763DA1FE266FB00C30B33 /* LaunchScreen.storyboard in Resources */,
-				A37763D71FE266FB00C30B33 /* Assets.xcassets in Resources */,
+				A37763D71FE266FB00C30B33 /* image.xcassets in Resources */,
 				A37763D51FE266FB00C30B33 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -284,6 +284,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = ZTTextFieldText/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -297,6 +298,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = ZTTextFieldText/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
