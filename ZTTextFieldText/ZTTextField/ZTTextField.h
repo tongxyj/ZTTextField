@@ -7,10 +7,20 @@
 //
 
 #import <UIKit/UIKit.h>
-
+IB_DESIGNABLE
 @interface ZTTextField : UITextField
 /**
  * FontSize of placeholder Label.
  */
 @property (nonatomic, assign) IBInspectable CGFloat subPhFontSize;
+/**
+ * Text color to be applied to floating placeholder text when not editing.
+ * Default is 70% gray.
+ */
+@property (nonatomic, strong) IBInspectable UIColor *placeholderInactiveColor;
+/**
+ * Text color to be applied to floating placeholder text when editing.
+ * Default is tint color.
+ */
+@property (nonatomic, strong) IBInspectable UIColor *placeholderActiveColor;
 @end
