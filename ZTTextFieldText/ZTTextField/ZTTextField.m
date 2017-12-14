@@ -28,10 +28,21 @@
    
 }
 
+/**
+ * 开始编辑
+ */
+- (void) runDidBeginAnimation {
+
+    if (self.text.length > 0) {//已经有内容
+        
+    }
+}
+
 #pragma mark - Target Method
 
 - (IBAction) textFieldEdittingDidBeginInternal:(UITextField *)sender {
  //开始编辑
+    [self runDidBeginAnimation];
 }
 
 - (IBAction) textFieldEdittingDidEndInternal:(UITextField *)sender {
