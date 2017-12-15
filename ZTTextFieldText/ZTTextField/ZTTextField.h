@@ -10,6 +10,10 @@
 IB_DESIGNABLE
 @interface ZTTextField : UITextField
 /**
+ * Text to be displayed above the field.
+ */
+@property (nonatomic, copy) IBInspectable NSString* subPlText;
+/**
  * FontSize of placeholder Label.
  */
 @property (nonatomic, assign) IBInspectable CGFloat subPhFontSize;
