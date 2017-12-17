@@ -27,4 +27,12 @@ IB_DESIGNABLE
  * Default is tint color.
  */
 @property (nonatomic, strong) IBInspectable UIColor *placeholderActiveColor;
+/**
+ * Hint label text.
+ */
+@property (nonatomic, copy) IBInspectable NSString* hintLabelText;
+/**
+ * FontSize of hint Label.
+ */
+@property (nonatomic, assign) IBInspectable CGFloat hintLabelFontSize;
 @end

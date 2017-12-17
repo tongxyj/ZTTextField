@@ -38,6 +38,10 @@
                                         <color key="value" red="0.2666666667" green="0.54117647059999996" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     </userDefinedRuntimeAttribute>
                                     <userDefinedRuntimeAttribute type="string" keyPath="subPlText" value="乘客姓名"/>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="hintLabelText" value="选填"/>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="hintLabelFontSize">
+                                        <real key="value" value="15"/>
+                                    </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="b" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="LUZ-nC-Xkh" customClass="ZTTextField">

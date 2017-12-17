@@ -13,6 +13,7 @@ static CGFloat const placeholderLabelHideScale = 1.02;
 
 @interface ZTTextField ()
 @property (nonatomic) UILabel *placeholderLabel;
+@property (nonatomic) UILabel *hintLabel;
 @end
 
 @implementation ZTTextField
@@ -25,9 +26,21 @@ static CGFloat const placeholderLabelHideScale = 1.02;
 - (void)updateUI {
     self.clipsToBounds = NO;
     self.backgroundColor = [UIColor clearColor];
+    [self createUpperPlaceholderLabel];
+    [self createHintLabel];
+   
+    [self addTarget:self action:@selector(textFieldEdittingDidBeginInternal:) forControlEvents:UIControlEventEditingDidBegin];
+    [self addTarget:self action:@selector(textFieldEdittingDidChangeInternal:) forControlEvents:UIControlEventEditingChanged];
+    [self addTarget:self action:@selector(textFieldEdittingDidEndInternal:) forControlEvents:UIControlEventEditingDidEnd];
+
+   
+}
+
+- (void)createUpperPlaceholderLabel {
     self.placeholderLabel = [UILabel new];
     self.placeholderLabel.text = self.subPlText;
     self.placeholderLabel.font = [UIFont systemFontOfSize:self.subPhFontSize];//展示在👆的placeholder的字体大小
+    [self floatingLabelUpperColor];
     if (self.text.length > 0) {
         self.placeholderLabel.transform = CGAffineTransformMakeScale(placeholderLabelShowScale, placeholderLabelShowScale);//缩放
         self.placeholderLabel.frame = [self floatingLabelUpperFrame];
@@ -35,16 +48,30 @@ static CGFloat const placeholderLabelHideScale = 1.02;
         self.placeholderLabel.transform = CGAffineTransformMakeScale(placeholderLabelHideScale, placeholderLabelHideScale);//还原
         self.placeholderLabel.frame = [super textRectForBounds:self.bounds];
     }
-    [self floatingLabelUpperColor];
-    [self addTarget:self action:@selector(textFieldEdittingDidBeginInternal:) forControlEvents:UIControlEventEditingDidBegin];
-    [self addTarget:self action:@selector(textFieldEdittingDidChangeInternal:) forControlEvents:UIControlEventEditingChanged];
-    [self addTarget:self action:@selector(textFieldEdittingDidEndInternal:) forControlEvents:UIControlEventEditingDidEnd];
     [self addSubview:self.placeholderLabel];
-   
+}
+
+- (void)createHintLabel {
+    self.hintLabel = [UILabel new];
+    self.hintLabel.text = self.hintLabelText;
+    self.hintLabel.transform = CGAffineTransformMakeScale(placeholderLabelShowScale, placeholderLabelShowScale);//缩放
+    self.hintLabel.font = [UIFont systemFontOfSize:self.hintLabelFontSize];
+    [self.hintLabel sizeToFit];
+    self.hintLabel.textAlignment = NSTextAlignmentRight;
+    self.hintLabel.textColor = self.placeholderInactiveColor;
+    [self hintLabelFrame];
+    [self addSubview:self.hintLabel];
 }
 
 - (void)floatingLabelUpperColor {
     self.placeholderLabel.textColor = self.editing ? self.placeholderActiveColor : self.placeholderInactiveColor;
+}
+- (void)hintLabelFrame {
+     CGRect placeHolderFrame = [super textRectForBounds:self.bounds];
+    CGRect hintLabelFrame = self.hintLabel.frame;
+    hintLabelFrame.origin.x = CGRectGetMaxX(placeHolderFrame) - self.hintLabel.frame.size.width;
+    hintLabelFrame.origin.y = - 1 - self.frame.size.height / 2;
+    self.hintLabel.frame = hintLabelFrame;
 }
 
 - (CGRect)floatingLabelUpperFrame {
@@ -61,6 +88,7 @@ static CGFloat const placeholderLabelHideScale = 1.02;
                         [self floatingLabelUpperColor];
                         self.placeholderLabel.transform = CGAffineTransformMakeScale(placeholderLabelShowScale, placeholderLabelShowScale);//缩放
                         self.placeholderLabel.frame = [self floatingLabelUpperFrame];
+                        self.hintLabel.alpha = 1;
                     } completion:nil];
 }
 
@@ -119,6 +147,7 @@ static CGFloat const placeholderLabelHideScale = 1.02;
                            options:UIViewAnimationOptionBeginFromCurrentState | UIViewAnimationOptionTransitionCrossDissolve
                         animations:^{
                             self.placeholderLabel.textColor = self.placeholderInactiveColor;
+                            self.hintLabel.alpha = 0;
                         } completion:nil];
     } else {
         
