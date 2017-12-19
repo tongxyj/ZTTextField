@@ -7,6 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+typedef NSString *(^ValidationBlock)(void);
+
 IB_DESIGNABLE
 @interface ZTTextField : UITextField
 /**
@@ -35,4 +37,14 @@ IB_DESIGNABLE
  * FontSize of hint Label.
  */
 @property (nonatomic, assign) IBInspectable CGFloat hintLabelFontSize;
+/**
+ * block vertify the text format
+ */
+@property (nonatomic, copy) ValidationBlock validationBlk;
+/**
+ * if the text format is wrong
+ */
+@property (nonatomic, assign) BOOL bWrongFormat;
+
+- (void)textFieldShowWrongFormatMessageIfNeed;
 @end

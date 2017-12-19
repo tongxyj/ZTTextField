@@ -19,7 +19,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="b" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="hS6-ax-GsU" customClass="ZTTextField">
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="hS6-ax-GsU" customClass="ZTTextField">
                                 <rect key="frame" x="22" y="70" width="338" height="40"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="SUi-qA-I4T"/>
@@ -63,11 +63,22 @@
                                         <color key="value" red="0.2666666667" green="0.54117647059999996" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     </userDefinedRuntimeAttribute>
                                     <userDefinedRuntimeAttribute type="string" keyPath="subPlText" value="证件号"/>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="hintLabelText" value="选填"/>
                                 </userDefinedRuntimeAttributes>
                             </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sTT-0S-4XO">
+                                <rect key="frame" x="167" y="234" width="46" height="30"/>
+                                <state key="normal" title="提交"/>
+                                <connections>
+                                    <action selector="didPressedDone:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Un5-U2-GbZ"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="sTT-0S-4XO" firstAttribute="top" secondItem="LUZ-nC-Xkh" secondAttribute="bottom" constant="55" id="3r7-NY-jZ7"/>
+                            <constraint firstItem="sTT-0S-4XO" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="167" id="GA1-ug-2vm"/>
+                            <constraint firstItem="sTT-0S-4XO" firstAttribute="centerX" secondItem="LUZ-nC-Xkh" secondAttribute="centerX" id="Na2-nN-1Z9"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="hS6-ax-GsU" secondAttribute="trailing" constant="15" id="bMK-Rw-1BW"/>
                             <constraint firstItem="LUZ-nC-Xkh" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="iA8-e6-KMz"/>
                             <constraint firstItem="hS6-ax-GsU" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="50" id="mSm-Sv-eEE"/>
