@@ -6,7 +6,6 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
-        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -19,55 +18,131 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="hS6-ax-GsU" customClass="ZTTextField">
-                                <rect key="frame" x="22" y="70" width="338" height="40"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qYe-x1-M5O">
+                                <rect key="frame" x="22" y="195" width="338" height="60"/>
+                                <subviews>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="UHH-Wl-0yF" customClass="ZTTextField">
+                                        <rect key="frame" x="0.0" y="20" width="338" height="40"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="40" id="eSf-OQ-6c0"/>
+                                        </constraints>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="subPhFontSize">
+                                                <real key="value" value="15"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="placeholderInactiveColor">
+                                                <color key="value" red="0.60784313729999995" green="0.60784313729999995" blue="0.60784313729999995" alpha="0.93999999999999995" colorSpace="custom" customColorSpace="sRGB"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="placeholderActiveColor">
+                                                <color key="value" red="0.2666666667" green="0.54117647059999996" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="string" keyPath="subPlText" value="证件号"/>
+                                            <userDefinedRuntimeAttribute type="string" keyPath="hintLabelText" value="选填"/>
+                                            <userDefinedRuntimeAttribute type="string" keyPath="editingPhText" value="请输入证件号"/>
+                                            <userDefinedRuntimeAttribute type="string" keyPath="subPhText" value="手机号"/>
+                                            <userDefinedRuntimeAttribute type="string" keyPath="upperPhText" value="证件号码"/>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="upperPhFontSize">
+                                                <real key="value" value="15"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </textField>
+                                </subviews>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="40" id="SUi-qA-I4T"/>
+                                    <constraint firstAttribute="trailing" secondItem="UHH-Wl-0yF" secondAttribute="trailing" id="G9X-N1-ISM"/>
+                                    <constraint firstAttribute="bottom" secondItem="UHH-Wl-0yF" secondAttribute="bottom" id="Kpx-k5-e83"/>
+                                    <constraint firstItem="UHH-Wl-0yF" firstAttribute="leading" secondItem="qYe-x1-M5O" secondAttribute="leading" id="SYy-b8-VT3"/>
+                                    <constraint firstAttribute="height" constant="60" id="bug-WZ-GXJ"/>
+                                    <constraint firstItem="UHH-Wl-0yF" firstAttribute="centerX" secondItem="qYe-x1-M5O" secondAttribute="centerX" id="kjG-Qk-3uU"/>
                                 </constraints>
-                                <nil key="textColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="subPhFontSize">
-                                        <real key="value" value="15"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="color" keyPath="placeholderInactiveColor">
-                                        <color key="value" red="0.60784313729999995" green="0.60784313729999995" blue="0.60784313729999995" alpha="0.93999999999999995" colorSpace="custom" customColorSpace="sRGB"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="color" keyPath="placeholderActiveColor">
-                                        <color key="value" red="0.2666666667" green="0.54117647059999996" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="string" keyPath="subPlText" value="乘客姓名"/>
-                                    <userDefinedRuntimeAttribute type="string" keyPath="hintLabelText" value="选填"/>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="hintLabelFontSize">
-                                        <real key="value" value="15"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
-                            </textField>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="b" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="LUZ-nC-Xkh" customClass="ZTTextField">
-                                <rect key="frame" x="21" y="139" width="338" height="40"/>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UZy-Hq-Bg3">
+                                <rect key="frame" x="22" y="130" width="338" height="65"/>
+                                <subviews>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="LUZ-nC-Xkh" customClass="ZTTextField">
+                                        <rect key="frame" x="0.0" y="25" width="338" height="40"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="40" id="Rbg-FP-QnR"/>
+                                        </constraints>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="subPhFontSize">
+                                                <real key="value" value="15"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="placeholderInactiveColor">
+                                                <color key="value" red="0.60784313729999995" green="0.60784313729999995" blue="0.60784313729999995" alpha="0.93999999999999995" colorSpace="custom" customColorSpace="sRGB"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="placeholderActiveColor">
+                                                <color key="value" red="0.2666666667" green="0.54117647059999996" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="string" keyPath="subPlText" value="证件号"/>
+                                            <userDefinedRuntimeAttribute type="string" keyPath="hintLabelText" value="选填"/>
+                                            <userDefinedRuntimeAttribute type="string" keyPath="editingPhText" value="请输入手机号"/>
+                                            <userDefinedRuntimeAttribute type="string" keyPath="subPhText" value="手机号"/>
+                                            <userDefinedRuntimeAttribute type="string" keyPath="upperPhText" value="手机号"/>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="upperPhFontSize">
+                                                <real key="value" value="15"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </textField>
+                                </subviews>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="40" id="VUc-5f-Iq0"/>
+                                    <constraint firstAttribute="height" constant="65" id="57Y-qy-FWS"/>
+                                    <constraint firstItem="LUZ-nC-Xkh" firstAttribute="centerX" secondItem="UZy-Hq-Bg3" secondAttribute="centerX" id="Hky-VI-pr9"/>
+                                    <constraint firstAttribute="trailing" secondItem="LUZ-nC-Xkh" secondAttribute="trailing" id="fpY-jS-rIQ"/>
+                                    <constraint firstItem="LUZ-nC-Xkh" firstAttribute="leading" secondItem="UZy-Hq-Bg3" secondAttribute="leading" id="kXO-oK-aha"/>
+                                    <constraint firstAttribute="bottom" secondItem="LUZ-nC-Xkh" secondAttribute="bottom" id="oeD-8d-rJe"/>
                                 </constraints>
-                                <nil key="textColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="subPhFontSize">
-                                        <real key="value" value="15"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="color" keyPath="placeholderInactiveColor">
-                                        <color key="value" red="0.60784313729999995" green="0.60784313729999995" blue="0.60784313729999995" alpha="0.93999999999999995" colorSpace="custom" customColorSpace="sRGB"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="color" keyPath="placeholderActiveColor">
-                                        <color key="value" red="0.2666666667" green="0.54117647059999996" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="string" keyPath="subPlText" value="证件号"/>
-                                    <userDefinedRuntimeAttribute type="string" keyPath="hintLabelText" value="选填"/>
-                                </userDefinedRuntimeAttributes>
-                            </textField>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Cr9-xC-3YF">
+                                <rect key="frame" x="22" y="70" width="338" height="60"/>
+                                <subviews>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="hS6-ax-GsU" customClass="ZTTextField">
+                                        <rect key="frame" x="0.0" y="20" width="338" height="40"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="40" id="8Vp-7W-GPM"/>
+                                        </constraints>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="subPhFontSize">
+                                                <real key="value" value="15"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="placeholderInactiveColor">
+                                                <color key="value" red="0.60784313729999995" green="0.60784313729999995" blue="0.60784313729999995" alpha="0.93999999999999995" colorSpace="custom" customColorSpace="sRGB"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="placeholderActiveColor">
+                                                <color key="value" red="0.2666666667" green="0.54117647059999996" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="string" keyPath="subPlText" value="乘客姓名"/>
+                                            <userDefinedRuntimeAttribute type="string" keyPath="hintLabelText" value="选填"/>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="hintLabelFontSize">
+                                                <real key="value" value="15"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="string" keyPath="subPhText" value="乘客姓名"/>
+                                            <userDefinedRuntimeAttribute type="string" keyPath="editingPhText" value="请输入乘客姓名"/>
+                                            <userDefinedRuntimeAttribute type="string" keyPath="upperPhText" value="乘客姓名"/>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="upperPhFontSize">
+                                                <real key="value" value="15"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </textField>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="hS6-ax-GsU" firstAttribute="leading" secondItem="Cr9-xC-3YF" secondAttribute="leading" id="5fJ-h7-MbM"/>
+                                    <constraint firstAttribute="bottom" secondItem="hS6-ax-GsU" secondAttribute="bottom" id="apd-zK-uuW"/>
+                                    <constraint firstAttribute="height" constant="60" id="dEW-s7-KCj"/>
+                                    <constraint firstItem="hS6-ax-GsU" firstAttribute="centerX" secondItem="Cr9-xC-3YF" secondAttribute="centerX" id="mRe-W0-NtJ"/>
+                                    <constraint firstAttribute="trailing" secondItem="hS6-ax-GsU" secondAttribute="trailing" id="sR1-mH-4xL"/>
+                                </constraints>
+                            </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sTT-0S-4XO">
-                                <rect key="frame" x="167" y="234" width="46" height="30"/>
+                                <rect key="frame" x="168" y="308" width="46" height="30"/>
                                 <state key="normal" title="提交"/>
                                 <connections>
                                     <action selector="didPressedDone:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Un5-U2-GbZ"/>
@@ -76,24 +151,29 @@
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="sTT-0S-4XO" firstAttribute="top" secondItem="LUZ-nC-Xkh" secondAttribute="bottom" constant="55" id="3r7-NY-jZ7"/>
-                            <constraint firstItem="sTT-0S-4XO" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="167" id="GA1-ug-2vm"/>
-                            <constraint firstItem="sTT-0S-4XO" firstAttribute="centerX" secondItem="LUZ-nC-Xkh" secondAttribute="centerX" id="Na2-nN-1Z9"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="hS6-ax-GsU" secondAttribute="trailing" constant="15" id="bMK-Rw-1BW"/>
-                            <constraint firstItem="LUZ-nC-Xkh" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="iA8-e6-KMz"/>
-                            <constraint firstItem="hS6-ax-GsU" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="50" id="mSm-Sv-eEE"/>
-                            <constraint firstItem="LUZ-nC-Xkh" firstAttribute="top" secondItem="hS6-ax-GsU" secondAttribute="bottom" constant="29" id="tuA-fL-bLO"/>
-                            <constraint firstItem="hS6-ax-GsU" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="22" id="w6w-Mq-CmA"/>
-                            <constraint firstItem="LUZ-nC-Xkh" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="21" id="wUr-de-MzL"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="qYe-x1-M5O" secondAttribute="trailing" constant="15" id="0Hf-sm-mHf"/>
+                            <constraint firstItem="Cr9-xC-3YF" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="50" id="5iy-rY-tb7"/>
+                            <constraint firstItem="qYe-x1-M5O" firstAttribute="top" secondItem="UZy-Hq-Bg3" secondAttribute="bottom" id="6Qc-xw-YuF"/>
+                            <constraint firstItem="sTT-0S-4XO" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="168" id="JIG-l0-eWz"/>
+                            <constraint firstItem="sTT-0S-4XO" firstAttribute="top" secondItem="qYe-x1-M5O" secondAttribute="bottom" constant="53" id="TfG-Do-lK2"/>
+                            <constraint firstItem="Cr9-xC-3YF" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="22" id="WiG-ZH-jgF"/>
+                            <constraint firstItem="sTT-0S-4XO" firstAttribute="centerX" secondItem="qYe-x1-M5O" secondAttribute="centerX" id="cCx-jQ-Ha0"/>
+                            <constraint firstItem="UZy-Hq-Bg3" firstAttribute="top" secondItem="Cr9-xC-3YF" secondAttribute="bottom" id="k1P-gd-U75"/>
+                            <constraint firstItem="qYe-x1-M5O" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="22" id="nP8-7F-Xca"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="UZy-Hq-Bg3" secondAttribute="trailing" constant="15" id="sWE-WI-dhE"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Cr9-xC-3YF" secondAttribute="trailing" constant="15" id="tY0-kG-bLT"/>
+                            <constraint firstItem="UZy-Hq-Bg3" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="22" id="vny-sc-vZX"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
+                        <outlet property="noField" destination="UHH-Wl-0yF" id="8CV-ij-HIZ"/>
                         <outlet property="textField" destination="hS6-ax-GsU" id="Vpr-u9-z6A"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="24.800000000000001" y="30.134932533733135"/>
         </scene>
     </scenes>
 </document>

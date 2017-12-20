@@ -11,6 +11,7 @@
 
 @interface ViewController ()
 @property (weak, nonatomic) IBOutlet ZTTextField *textField;
+@property (weak, nonatomic) IBOutlet ZTTextField *noField;
 
 @end
 
@@ -26,6 +27,7 @@
         }
         return @"";
     };
+    _noField.textFieldType = ZTTextFieldTypeNormal;
 }
 - (IBAction)didPressedDone:(id)sender {
     [_textField textFieldShowWrongFormatMessageIfNeed];

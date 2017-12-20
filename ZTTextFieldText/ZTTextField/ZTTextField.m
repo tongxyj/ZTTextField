@@ -15,7 +15,7 @@ static CGFloat const placeholderLabelHideScale = 1.02;
 @interface ZTTextField ()
 @property (nonatomic) UILabel *placeholderLabel;
 @property (nonatomic) UILabel *hintLabel;
-@property (nonatomic, copy) NSString *sWrongTextFormatMsg;
+@property (nonatomic, copy) NSString *sWrongFormatMsg;
 @end
 
 @implementation ZTTextField
@@ -26,6 +26,7 @@ static CGFloat const placeholderLabelHideScale = 1.02;
 }
 
 - (void)updateUI {
+    self.borderStyle = UITextBorderStyleNone;
     self.clipsToBounds = NO;
     self.backgroundColor = [UIColor clearColor];
     [self createUpperPlaceholderLabel];
@@ -39,21 +40,22 @@ static CGFloat const placeholderLabelHideScale = 1.02;
 - (void)setValidationBlk:(ValidationBlock)validationBlk {
     _validationBlk = validationBlk;
     if (validationBlk) {
-        self.sWrongTextFormatMsg = self.validationBlk();
+        self.sWrongFormatMsg = self.validationBlk();
     }
 }
 
 - (void)createUpperPlaceholderLabel {
     self.placeholderLabel = [UILabel new];
-    self.placeholderLabel.text = self.subPlText;
-    self.placeholderLabel.font = [UIFont systemFontOfSize:self.subPhFontSize];//展示在👆的placeholder的字体大小
+    self.placeholderLabel.text = self.editingPhText;
+    self.placeholderLabel.font = [UIFont systemFontOfSize:self.upperPhFontSize];//展示在👆的placeholder的字体大小
+    [self.placeholderLabel sizeToFit];
     [self floatingLabelUpperColor];
     if (self.text.length > 0) {
         self.placeholderLabel.transform = CGAffineTransformMakeScale(placeholderLabelShowScale, placeholderLabelShowScale);//缩放
         self.placeholderLabel.frame = [self floatingLabelUpperFrame];
     } else {
         self.placeholderLabel.transform = CGAffineTransformMakeScale(placeholderLabelHideScale, placeholderLabelHideScale);//还原
-        self.placeholderLabel.frame = [super textRectForBounds:self.bounds];
+        self.placeholderLabel.frame = self.textFieldType == ZTTextFieldTypeNormal ? [super textRectForBounds:self.bounds] : [self noBorderFloatingLabelFrame];
     }
     [self addSubview:self.placeholderLabel];
 }
@@ -72,15 +74,17 @@ static CGFloat const placeholderLabelHideScale = 1.02;
 - (void)showBeginAnimation {
     [UIView transitionWithView:self.placeholderLabel
                       duration:0.35f
-                       options:UIViewAnimationOptionBeginFromCurrentState | UIViewAnimationOptionTransitionCrossDissolve
+                       options:UIViewAnimationOptionBeginFromCurrentState | UIViewAnimationOptionTransitionFlipFromTop
                     animations:^{
+                        self.placeholderLabel.text = self.upperPhText;
+                        [self.placeholderLabel sizeToFit];
                         [self floatingLabelUpperColor];
                         self.placeholderLabel.transform = CGAffineTransformMakeScale(placeholderLabelShowScale, placeholderLabelShowScale);//缩放
                         self.placeholderLabel.frame = [self floatingLabelUpperFrame];
                     } completion:nil];
     [UIView transitionWithView:self.hintLabel
                       duration:0.35f
-                       options:UIViewAnimationOptionTransitionCrossDissolve
+                       options:UIViewAnimationOptionBeginFromCurrentState | UIViewAnimationOptionTransitionCrossDissolve
                     animations:^{
                         self.hintLabel.alpha = 1;
                         self.hintLabel.text = self.hintLabelText;
@@ -94,11 +98,13 @@ static CGFloat const placeholderLabelHideScale = 1.02;
 - (void)showEndAnimation {
     [UIView transitionWithView:self.placeholderLabel
                       duration:0.35f
-                       options:UIViewAnimationOptionBeginFromCurrentState | UIViewAnimationOptionTransitionCrossDissolve
+                       options:UIViewAnimationOptionBeginFromCurrentState | UIViewAnimationOptionTransitionFlipFromBottom
                     animations:^{
+                        self.placeholderLabel.text = self.editingPhText;
+                        [self.placeholderLabel sizeToFit];
                         [self floatingLabelUpperColor];
                         self.placeholderLabel.transform = CGAffineTransformMakeScale(placeholderLabelHideScale, placeholderLabelHideScale);//还原
-                        self.placeholderLabel.frame = [super textRectForBounds:self.bounds];
+                        self.placeholderLabel.frame = self.textFieldType == ZTTextFieldTypeNormal ? [super textRectForBounds:self.bounds] : [self noBorderFloatingLabelFrame];
                     } completion:nil];
     
 }
@@ -106,7 +112,7 @@ static CGFloat const placeholderLabelHideScale = 1.02;
 - (void)shakeHintLabel {
     self.hintLabel.alpha = 1;
     self.hintLabel.textColor = [UIColor redColor];
-    self.hintLabel.text = self.sWrongTextFormatMsg;
+    self.hintLabel.text = self.sWrongFormatMsg;
     [self.hintLabel sizeToFit];
     [self hintLabelFrame];
     CABasicAnimation *animation = [CABasicAnimation animation];
@@ -132,18 +138,26 @@ static CGFloat const placeholderLabelHideScale = 1.02;
 
 - (CGRect)floatingLabelUpperFrame {
     CGRect placeHolderFrame = [super textRectForBounds:self.bounds];
-    //颜色置灰
     return CGRectMake(placeHolderFrame.origin.x - 1, - 1 - self.frame.size.height / 2, self.bounds.size.width - 2 * 0, self.frame.size.height / 2);
 }
+
+- (CGRect)noBorderFloatingLabelFrame {
+    CGRect placeHolderFrame = [super textRectForBounds:self.bounds];
+    //颜色置灰
+    return CGRectMake(placeHolderFrame.origin.x - 1,0 , self.bounds.size.width - 2 * 0, self.frame.size.height / 2);
+}
+
 - (void)validateText {
 
-    if (self.sWrongTextFormatMsg.length > 0) {
-        self.bWrongFormat = YES;
+    if (self.validationBlk) {
+        self.sWrongFormatMsg = self.validationBlk();
+    }
+    if (self.sWrongFormatMsg.length > 0) {
         [UIView transitionWithView:self.hintLabel
                           duration:0.35f
                            options:UIViewAnimationOptionBeginFromCurrentState | UIViewAnimationOptionTransitionCrossDissolve
                         animations:^{
-                            self.hintLabel.text = self.text.length > 0 ? self.sWrongTextFormatMsg : self.hintLabelText;
+                            self.hintLabel.text = self.text.length > 0 ? self.sWrongFormatMsg : self.hintLabelText;
                             [self.hintLabel sizeToFit];
                             [self hintLabelFrame];
                             self.hintLabel.textColor = self.text.length > 0 ? [UIColor redColor] : _placeholderInactiveColor;
@@ -160,7 +174,7 @@ static CGFloat const placeholderLabelHideScale = 1.02;
 }
 
 - (void)textFieldShowWrongFormatMessageIfNeed {
-    if (self.sWrongTextFormatMsg.length > 0) {
+    if (self.sWrongFormatMsg.length > 0) {
         [self shakeHintLabel];
     }
 }
@@ -171,9 +185,20 @@ static CGFloat const placeholderLabelHideScale = 1.02;
     if (text.length > 0) {
         [self showBeginAnimation];
     }
-    
 }
 
+- (void)setTextFieldType:(ZTTextFieldType)textFieldType {
+    _textFieldType = textFieldType;
+    switch (textFieldType) {
+        case ZTTextFieldTypeNoBorder:
+            self.borderStyle = UITextBorderStyleNone;
+            break;
+        default:
+            self.borderStyle = UITextBorderStyleRoundedRect;
+            break;
+    }
+    self.placeholderLabel.frame = self.textFieldType == ZTTextFieldTypeNormal ? [super textRectForBounds:self.bounds] : [self noBorderFloatingLabelFrame];
+}
 #pragma mark - Target Method
 
 - (IBAction)textFieldEdittingDidBeginInternal:(UITextField *)sender {

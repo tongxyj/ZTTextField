@@ -9,16 +9,25 @@
 #import <UIKit/UIKit.h>
 typedef NSString *(^ValidationBlock)(void);
 
+typedef NS_ENUM(NSInteger, ZTTextFieldType) {
+    ZTTextFieldTypeNoBorder = 0,
+    ZTTextFieldTypeNormal,
+};
+
 IB_DESIGNABLE
 @interface ZTTextField : UITextField
 /**
  * Text to be displayed above the field.
  */
-@property (nonatomic, copy) IBInspectable NSString* subPlText;
+@property (nonatomic, copy) IBInspectable NSString* upperPhText;
+/**
+ * Text to be displayed in the field.
+ */
+@property (nonatomic, copy) IBInspectable NSString* editingPhText;
 /**
  * FontSize of placeholder Label.
  */
-@property (nonatomic, assign) IBInspectable CGFloat subPhFontSize;
+@property (nonatomic, assign) IBInspectable CGFloat upperPhFontSize;
 /**
  * Text color to be applied to floating placeholder text when not editing.
  * Default is 70% gray.
@@ -42,9 +51,9 @@ IB_DESIGNABLE
  */
 @property (nonatomic, copy) ValidationBlock validationBlk;
 /**
- * if the text format is wrong
+ * The type of the textfield
  */
-@property (nonatomic, assign) BOOL bWrongFormat;
+@property (nonatomic, assign) IBInspectable ZTTextFieldType textFieldType;
 
 - (void)textFieldShowWrongFormatMessageIfNeed;
 @end
