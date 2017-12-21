@@ -7,7 +7,6 @@
 //
 
 #import <UIKit/UIKit.h>
-typedef NSString *(^ValidationBlock)(void);
 
 typedef NS_ENUM(NSInteger, ZTTextFieldType) {
     ZTTextFieldTypeNoBorder = 0,
@@ -16,14 +15,15 @@ typedef NS_ENUM(NSInteger, ZTTextFieldType) {
 
 IB_DESIGNABLE
 @interface ZTTextField : UITextField
+typedef NSString *(^FormatValidationBlock)(ZTTextField *textField);
 /**
  * Text to be displayed above the field.
  */
-@property (nonatomic, copy) IBInspectable NSString* upperPhText;
+@property (nonatomic, copy) IBInspectable NSString *upperPhText;
 /**
  * Text to be displayed in the field.
  */
-@property (nonatomic, copy) IBInspectable NSString* editingPhText;
+@property (nonatomic, copy) IBInspectable NSString *editingPhText;
 /**
  * FontSize of placeholder Label.
  */
@@ -41,7 +41,7 @@ IB_DESIGNABLE
 /**
  * Hint label text.
  */
-@property (nonatomic, copy) IBInspectable NSString* hintLabelText;
+@property (nonatomic, copy) IBInspectable NSString *hintLabelText;
 /**
  * FontSize of hint Label.
  */
@@ -49,11 +49,11 @@ IB_DESIGNABLE
 /**
  * block vertify the text format
  */
-@property (nonatomic, copy) ValidationBlock validationBlk;
+@property (nonatomic, copy) FormatValidationBlock validationBlk;
 /**
  * The type of the textfield
  */
 @property (nonatomic, assign) IBInspectable ZTTextFieldType textFieldType;
 
-- (void)textFieldShowWrongFormatMessageIfNeed;
+- (void)textFieldShowWrongMessage:(NSString *)sWrongMessage;
 @end

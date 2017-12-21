@@ -12,7 +12,7 @@
 static CGFloat const placeholderLabelShowScale = 0.8978;
 static CGFloat const placeholderLabelHideScale = 1.02;
 
-@interface ZTTextField ()
+@interface ZTTextField () <CAAnimationDelegate>
 @property (nonatomic) UILabel *placeholderLabel;
 @property (nonatomic) UILabel *hintLabel;
 @property (nonatomic, copy) NSString *sWrongFormatMsg;
@@ -37,10 +37,10 @@ static CGFloat const placeholderLabelHideScale = 1.02;
     [self addTarget:self action:@selector(textFieldEdittingDidEndInternal:) forControlEvents:UIControlEventEditingDidEnd];
 }
 
-- (void)setValidationBlk:(ValidationBlock)validationBlk {
+- (void)setValidationBlk:(FormatValidationBlock)validationBlk {
     _validationBlk = validationBlk;
     if (validationBlk) {
-        self.sWrongFormatMsg = self.validationBlk();
+        self.sWrongFormatMsg = self.validationBlk(self);
     }
 }
 
@@ -116,6 +116,7 @@ static CGFloat const placeholderLabelHideScale = 1.02;
     [self.hintLabel sizeToFit];
     [self hintLabelFrame];
     CABasicAnimation *animation = [CABasicAnimation animation];
+    animation.delegate = self;
     [animation setDuration:0.1];
     CGFloat x = CGRectGetMaxX(self.bounds) - self.hintLabel.frame.size.width - 5 + self.hintLabel.frame.size.width / 2;
     animation.fromValue = [NSValue valueWithCGPoint:CGPointMake(x  - 10, - 1 - self.frame.size.height / 2 + self.hintLabel.frame.size.height / 2)];
@@ -150,7 +151,7 @@ static CGFloat const placeholderLabelHideScale = 1.02;
 - (void)validateText {
 
     if (self.validationBlk) {
-        self.sWrongFormatMsg = self.validationBlk();
+        self.sWrongFormatMsg = self.validationBlk(self);
     }
     if (self.sWrongFormatMsg.length > 0) {
         [UIView transitionWithView:self.hintLabel
@@ -173,8 +174,8 @@ static CGFloat const placeholderLabelHideScale = 1.02;
     }
 }
 
-- (void)textFieldShowWrongFormatMessageIfNeed {
-    if (self.sWrongFormatMsg.length > 0) {
+- (void)textFieldShowWrongMessage:(NSString *)sWrongMessage {
+    if (sWrongMessage.length > 0) {
         [self shakeHintLabel];
     }
 }
@@ -248,4 +249,13 @@ static CGFloat const placeholderLabelHideScale = 1.02;
         
     }
 }
+- (void)animationDidStop:(CAAnimation *)anim finished:(BOOL)flag {
+    [UIView transitionWithView:self.hintLabel
+                      duration:1.5
+                       options:UIViewAnimationOptionBeginFromCurrentState | UIViewAnimationOptionTransitionCrossDissolve
+                    animations:^{
+                        self.hintLabel.alpha = 0;
+                    } completion:nil];
+}
+  
 @end

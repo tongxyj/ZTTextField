@@ -21,7 +21,7 @@
     [super viewDidLoad];
     [self.textField becomeFirstResponder];
     // Do any additional setup after loading the view, typically from a nib.
-    _textField.validationBlk = ^NSString *{
+    _textField.validationBlk = ^NSString *(ZTTextField *textField){
         if (_textField.text.length == 0) {
             return @"姓名不能为空";
         }
@@ -30,7 +30,7 @@
     _noField.textFieldType = ZTTextFieldTypeNormal;
 }
 - (IBAction)didPressedDone:(id)sender {
-    [_textField textFieldShowWrongFormatMessageIfNeed];
+    [_textField textFieldShowWrongMessage:@"姓名不能为空"];
 }
 
 
