@@ -10,6 +10,9 @@ import UIKit
 
 class ViewController: UIViewController {
 
+    @IBOutlet weak var textFieldName: ZTTextField!
+    @IBOutlet weak var textFieldMobile: ZTTextField!
+    @IBOutlet weak var textFieldCertyNo: ZTTextField!
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.

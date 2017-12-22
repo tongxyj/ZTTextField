@@ -40,7 +40,7 @@ static CGFloat const placeholderLabelHideScale = 1.02;
 - (void)setValidationBlk:(FormatValidationBlock)validationBlk {
     _validationBlk = validationBlk;
     if (validationBlk) {
-        self.sWrongFormatMsg = self.validationBlk(self);
+        self.sWrongFormatMsg = _validationBlk(self);
     }
 }
 

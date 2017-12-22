@@ -53,7 +53,7 @@ typedef NSString *(^FormatValidationBlock)(ZTTextField *textField);
 /**
  * The type of the textfield
  */
-@property (nonatomic, assign) IBInspectable ZTTextFieldType textFieldType;
+@property (nonatomic, assign) ZTTextFieldType textFieldType;
 
 - (void)textFieldShowWrongMessage:(NSString *)sWrongMessage;
 @end
