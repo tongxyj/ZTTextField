@@ -257,5 +257,4 @@ class ZTTextField: UITextField,CAAnimationDelegate {
             self.hintLabel?.alpha = 0;
         }, completion: nil)
     }
-    
 }
