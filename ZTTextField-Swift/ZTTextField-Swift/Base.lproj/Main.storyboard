@@ -21,7 +21,11 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Acv-dR-aGu">
                                 <rect key="frame" x="18" y="194" width="338" height="60"/>
                                 <subviews>
+<<<<<<< HEAD
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="rmM-9J-nwK" customClass="ZTTextField" customModule="ZTTextField_Swift" customModuleProvider="target">
+=======
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="rmM-9J-nwK" customClass="ZTTextField" customModule="ZTTextField_Swift">
+>>>>>>> 7e7eef622ffcf0e465dd354b64cb9b4ddb11404f
                                         <rect key="frame" x="0.0" y="20" width="338" height="40"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="40" id="bvN-ZJ-5sW"/>
@@ -56,7 +60,11 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="doJ-tO-rF3">
                                 <rect key="frame" x="18" y="129" width="338" height="65"/>
                                 <subviews>
+<<<<<<< HEAD
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="QpL-04-dRx" customClass="ZTTextField" customModule="ZTTextField_Swift" customModuleProvider="target">
+=======
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="QpL-04-dRx" customClass="ZTTextField" customModule="ZTTextField_Swift">
+>>>>>>> 7e7eef622ffcf0e465dd354b64cb9b4ddb11404f
                                         <rect key="frame" x="0.0" y="25" width="338" height="40"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="40" id="wgd-nW-1Nm"/>
@@ -92,7 +100,11 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WMZ-MY-SQ9">
                                 <rect key="frame" x="18" y="69" width="338" height="60"/>
                                 <subviews>
+<<<<<<< HEAD
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="TC3-Ep-TfW" customClass="ZTTextField" customModule="ZTTextField_Swift" customModuleProvider="target">
+=======
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="TC3-Ep-TfW" customClass="ZTTextField" customModule="ZTTextField_Swift">
+>>>>>>> 7e7eef622ffcf0e465dd354b64cb9b4ddb11404f
                                         <rect key="frame" x="0.0" y="20" width="338" height="40"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="40" id="ikq-S4-8TJ"/>
