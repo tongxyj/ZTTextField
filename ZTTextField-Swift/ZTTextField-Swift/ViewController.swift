@@ -15,7 +15,19 @@ class ViewController: UIViewController {
     @IBOutlet weak var textFieldCertyNo: ZTTextField!
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        self.textFieldName.becomeFirstResponder()
+        let closure = { (textField : ZTTextField) -> String in
+            
+            if let text = textField.text {
+                guard text.count > 0 else {
+                    return ""
+                }
+                return "姓名不能为空"
+            }
+            return ""
+        }
+        self.textFieldName.validationCloure = closure
+        self.textFieldCertyNo.textFieldType = .ZTTextFieldTypeNormal
     }
 
     override func didReceiveMemoryWarning() {

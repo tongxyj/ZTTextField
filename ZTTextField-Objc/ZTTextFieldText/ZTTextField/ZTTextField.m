@@ -139,13 +139,13 @@ static CGFloat const placeholderLabelHideScale = 1.02;
 
 - (CGRect)floatingLabelUpperFrame {
     CGRect placeHolderFrame = [super textRectForBounds:self.bounds];
-    return CGRectMake(placeHolderFrame.origin.x - 1, - 1 - self.frame.size.height / 2, self.bounds.size.width - 2 * 0, self.frame.size.height / 2);
+    return CGRectMake(placeHolderFrame.origin.x - 1, - 1 - self.frame.size.height / 2, self.bounds.size.width - 2, self.frame.size.height / 2);
 }
 
 - (CGRect)noBorderFloatingLabelFrame {
     CGRect placeHolderFrame = [super textRectForBounds:self.bounds];
     //颜色置灰
-    return CGRectMake(placeHolderFrame.origin.x - 1,0 , self.bounds.size.width - 2 * 0, self.frame.size.height / 2);
+    return CGRectMake(placeHolderFrame.origin.x - 1,0 , self.bounds.size.width - 2, self.frame.size.height / 2);
 }
 
 - (void)validateText {

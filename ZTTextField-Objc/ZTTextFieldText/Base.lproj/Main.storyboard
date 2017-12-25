@@ -30,19 +30,14 @@
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                         <userDefinedRuntimeAttributes>
-                                            <userDefinedRuntimeAttribute type="number" keyPath="subPhFontSize">
-                                                <real key="value" value="15"/>
-                                            </userDefinedRuntimeAttribute>
                                             <userDefinedRuntimeAttribute type="color" keyPath="placeholderInactiveColor">
                                                 <color key="value" red="0.60784313729999995" green="0.60784313729999995" blue="0.60784313729999995" alpha="0.93999999999999995" colorSpace="custom" customColorSpace="sRGB"/>
                                             </userDefinedRuntimeAttribute>
                                             <userDefinedRuntimeAttribute type="color" keyPath="placeholderActiveColor">
                                                 <color key="value" red="0.2666666667" green="0.54117647059999996" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             </userDefinedRuntimeAttribute>
-                                            <userDefinedRuntimeAttribute type="string" keyPath="subPlText" value="证件号"/>
                                             <userDefinedRuntimeAttribute type="string" keyPath="hintLabelText" value="选填"/>
                                             <userDefinedRuntimeAttribute type="string" keyPath="editingPhText" value="请输入证件号"/>
-                                            <userDefinedRuntimeAttribute type="string" keyPath="subPhText" value="手机号"/>
                                             <userDefinedRuntimeAttribute type="string" keyPath="upperPhText" value="证件号码"/>
                                             <userDefinedRuntimeAttribute type="number" keyPath="upperPhFontSize">
                                                 <real key="value" value="15"/>
@@ -70,19 +65,14 @@
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                         <userDefinedRuntimeAttributes>
-                                            <userDefinedRuntimeAttribute type="number" keyPath="subPhFontSize">
-                                                <real key="value" value="15"/>
-                                            </userDefinedRuntimeAttribute>
                                             <userDefinedRuntimeAttribute type="color" keyPath="placeholderInactiveColor">
                                                 <color key="value" red="0.60784313729999995" green="0.60784313729999995" blue="0.60784313729999995" alpha="0.93999999999999995" colorSpace="custom" customColorSpace="sRGB"/>
                                             </userDefinedRuntimeAttribute>
                                             <userDefinedRuntimeAttribute type="color" keyPath="placeholderActiveColor">
                                                 <color key="value" red="0.2666666667" green="0.54117647059999996" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             </userDefinedRuntimeAttribute>
-                                            <userDefinedRuntimeAttribute type="string" keyPath="subPlText" value="证件号"/>
                                             <userDefinedRuntimeAttribute type="string" keyPath="hintLabelText" value="选填"/>
                                             <userDefinedRuntimeAttribute type="string" keyPath="editingPhText" value="请输入手机号"/>
-                                            <userDefinedRuntimeAttribute type="string" keyPath="subPhText" value="手机号"/>
                                             <userDefinedRuntimeAttribute type="string" keyPath="upperPhText" value="手机号"/>
                                             <userDefinedRuntimeAttribute type="number" keyPath="upperPhFontSize">
                                                 <real key="value" value="15"/>
@@ -90,6 +80,7 @@
                                         </userDefinedRuntimeAttributes>
                                     </textField>
                                 </subviews>
+                                <color key="backgroundColor" red="0.86786328639999999" green="0.9396399902" blue="0.9875440285" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="65" id="57Y-qy-FWS"/>
                                     <constraint firstItem="LUZ-nC-Xkh" firstAttribute="centerX" secondItem="UZy-Hq-Bg3" secondAttribute="centerX" id="Hky-VI-pr9"/>
@@ -110,21 +101,16 @@
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                         <userDefinedRuntimeAttributes>
-                                            <userDefinedRuntimeAttribute type="number" keyPath="subPhFontSize">
-                                                <real key="value" value="15"/>
-                                            </userDefinedRuntimeAttribute>
                                             <userDefinedRuntimeAttribute type="color" keyPath="placeholderInactiveColor">
                                                 <color key="value" red="0.60784313729999995" green="0.60784313729999995" blue="0.60784313729999995" alpha="0.93999999999999995" colorSpace="custom" customColorSpace="sRGB"/>
                                             </userDefinedRuntimeAttribute>
                                             <userDefinedRuntimeAttribute type="color" keyPath="placeholderActiveColor">
                                                 <color key="value" red="0.2666666667" green="0.54117647059999996" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             </userDefinedRuntimeAttribute>
-                                            <userDefinedRuntimeAttribute type="string" keyPath="subPlText" value="乘客姓名"/>
                                             <userDefinedRuntimeAttribute type="string" keyPath="hintLabelText" value="选填"/>
                                             <userDefinedRuntimeAttribute type="number" keyPath="hintLabelFontSize">
                                                 <real key="value" value="15"/>
                                             </userDefinedRuntimeAttribute>
-                                            <userDefinedRuntimeAttribute type="string" keyPath="subPhText" value="乘客姓名"/>
                                             <userDefinedRuntimeAttribute type="string" keyPath="editingPhText" value="请输入乘客姓名"/>
                                             <userDefinedRuntimeAttribute type="string" keyPath="upperPhText" value="乘客姓名"/>
                                             <userDefinedRuntimeAttribute type="number" keyPath="upperPhFontSize">
@@ -133,6 +119,7 @@
                                         </userDefinedRuntimeAttributes>
                                     </textField>
                                 </subviews>
+                                <color key="backgroundColor" red="1" green="0.9396399902" blue="0.9875440285" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstItem="hS6-ax-GsU" firstAttribute="leading" secondItem="Cr9-xC-3YF" secondAttribute="leading" id="5fJ-h7-MbM"/>
                                     <constraint firstAttribute="bottom" secondItem="hS6-ax-GsU" secondAttribute="bottom" id="apd-zK-uuW"/>
