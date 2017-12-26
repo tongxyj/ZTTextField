@@ -175,10 +175,10 @@ class ZTTextField: UITextField,CAAnimationDelegate {
         hintLabelFrame.origin.y = -1 - self.frame.size.height / 2
         self.hintLabel?.frame = hintLabelFrame
     }
-    func shakeHintLabel() {
+    func shakeHintLabel(wrongMsg : String) {
         self.hintLabel?.alpha = 1
         self.hintLabel?.textColor = UIColor.red
-        self.hintLabel?.text = self.sWrongFormatMsg
+        self.hintLabel?.text = wrongMsg
         self.hintLabel?.sizeToFit()
         self.hintLabelFrame()
         let animation = CABasicAnimation.init()
@@ -200,11 +200,11 @@ class ZTTextField: UITextField,CAAnimationDelegate {
                 UIView.transition(with: self.hintLabel!, duration: 0.35, options: [UIViewAnimationOptions.beginFromCurrentState,UIViewAnimationOptions.transitionCrossDissolve], animations: {
                     if let textCount = self.text?.count {
                         self.hintLabel?.text = textCount > 0 ? self.sWrongFormatMsg : self.hintLabelText
+                        self.hintLabel?.sizeToFit()
+                        self.hintLabelFrame()
                         self.hintLabel?.textColor = textCount > 0 ? UIColor.red : self.placeholderInactiveColor
                         self.hintLabel?.alpha = textCount  > 0 ? 1 : 0
                     }
-                    self.hintLabel?.sizeToFit()
-                    self.hintLabelFrame()
                 }, completion: nil)
             }
         }
@@ -241,15 +241,14 @@ class ZTTextField: UITextField,CAAnimationDelegate {
                 UIView.transition(with: self.placeholderLabel!, duration: 0.35, options: [UIViewAnimationOptions.beginFromCurrentState,UIViewAnimationOptions.transitionFlipFromTop], animations: {
                     self.placeholderLabel?.textColor = self.placeholderInactiveColor
                 }, completion: nil)
+            } else {
+                self.showEndAnimation()
             }
-            self.showEndAnimation()
         }
     }
     open func textFieldShowWrongMessage(sWrongMessage : String) {
-        if let wrongMessageCount = sWrongFormatMsg?.count {
-            if wrongMessageCount > 0 {
-                self.shakeHintLabel()
-            }
+        if sWrongMessage.count > 0 {
+            self.shakeHintLabel(wrongMsg: sWrongMessage)
         }
     }
     func animationDidStop(_ anim: CAAnimation, finished flag: Bool) {

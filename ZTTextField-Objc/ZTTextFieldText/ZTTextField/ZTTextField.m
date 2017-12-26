@@ -109,10 +109,10 @@ static CGFloat const placeholderLabelHideScale = 1.02;
     
 }
 
-- (void)shakeHintLabel {
+- (void)shakeHintLabel:(NSString *)sWrongMsg {
     self.hintLabel.alpha = 1;
     self.hintLabel.textColor = [UIColor redColor];
-    self.hintLabel.text = self.sWrongFormatMsg;
+    self.hintLabel.text = sWrongMsg;
     [self.hintLabel sizeToFit];
     [self hintLabelFrame];
     CABasicAnimation *animation = [CABasicAnimation animation];
@@ -176,7 +176,7 @@ static CGFloat const placeholderLabelHideScale = 1.02;
 
 - (void)textFieldShowWrongMessage:(NSString *)sWrongMessage {
     if (sWrongMessage.length > 0) {
-        [self shakeHintLabel];
+        [self shakeHintLabel:sWrongMessage];
     }
 }
 

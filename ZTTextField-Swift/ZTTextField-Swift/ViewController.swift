@@ -19,10 +19,9 @@ class ViewController: UIViewController {
         let closure = { (textField : ZTTextField) -> String in
             
             if let text = textField.text {
-                guard text.count > 0 else {
-                    return ""
+                guard text.count == 0 else {
+                    return "姓名不能为空"
                 }
-                return "姓名不能为空"
             }
             return ""
         }
@@ -35,6 +34,9 @@ class ViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
 
-
+    @IBAction func didPressedDone(_ sender: Any) {
+        self.textFieldName.textFieldShowWrongMessage(sWrongMessage: "姓名不能为空")
+    }
+    
 }
 
