@@ -9,16 +9,16 @@
 import UIKit
 
 
-enum ZTTextFieldType {
+public enum ZTTextFieldType {
     case ZTTextFieldTypeNoBorder
     case ZTTextFieldTypeNormal
 }
 
-typealias FormatValidationClosure = (_ textField : ZTTextField) -> String
+public typealias FormatValidationClosure = (_ textField : ZTTextField) -> String
 
 @IBDesignable
 
-class ZTTextField: UITextField,CAAnimationDelegate {
+public class ZTTextField: UITextField,CAAnimationDelegate {
     static let placeholderLabelShowScale : CGFloat = 0.8978
     static let placeholderLabelHideScale : CGFloat = 1.02
     
@@ -42,7 +42,7 @@ class ZTTextField: UITextField,CAAnimationDelegate {
     /**
      * block vertify the text format
      */
-    open var validationCloure : FormatValidationClosure? {
+     public var validationCloure : FormatValidationClosure? {
         
         willSet {
             if let tempValue = newValue {
@@ -53,7 +53,7 @@ class ZTTextField: UITextField,CAAnimationDelegate {
     /**
      * The type of the textfield
      */
-    open var textFieldType : ZTTextFieldType = .ZTTextFieldTypeNoBorder{
+     public var textFieldType : ZTTextFieldType = .ZTTextFieldTypeNoBorder{
         didSet {
             switch textFieldType {
             case .ZTTextFieldTypeNoBorder:
@@ -91,7 +91,7 @@ class ZTTextField: UITextField,CAAnimationDelegate {
         super.init(frame: frame)
         self.updateUI()
     }
-    override func awakeFromNib() {
+    override public func awakeFromNib() {
         super.awakeFromNib()
         self.updateUI()
     }
@@ -251,7 +251,7 @@ class ZTTextField: UITextField,CAAnimationDelegate {
             self.shakeHintLabel(wrongMsg: sWrongMessage)
         }
     }
-    func animationDidStop(_ anim: CAAnimation, finished flag: Bool) {
+    public func animationDidStop(_ anim: CAAnimation, finished flag: Bool) {
         UIView.transition(with: self.hintLabel!, duration: 1.5, options: [UIViewAnimationOptions.beginFromCurrentState,UIViewAnimationOptions.transitionCrossDissolve], animations: {
             self.hintLabel?.alpha = 0;
         }, completion: nil)
