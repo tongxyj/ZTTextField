@@ -5,7 +5,8 @@
 - 可以自定义是否需要textField副标题
 - 可以自定义placeholder移动动画
 - 支持swift版和OC版
-##How they look
+
+## How they look
 
 ![ZTTextField.gif](http://upload-images.jianshu.io/upload_images/562662-824d6af73e2c96b5.gif?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
