@@ -8,7 +8,7 @@
 
 ## How they look
 
-![ZTTextField.gif](http://upload-images.jianshu.io/upload_images/562662-824d6af73e2c96b5.gif?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+![ZTTextField.gif](https://github.com/zhaitong/ZTTextField/blob/master/ZTTextFiled-HybirdDemo/ZTTextField.gif)
 
 
 ## How to use them
