@@ -6,12 +6,12 @@
 - 可以自定义placeholder移动动画
 - 支持swift版和OC版
 
-## How they look
+## How it look
 
 ![ZTTextField.gif](https://github.com/zhaitong/ZTTextField/blob/master/ZTTextFiled-HybirdDemo/ZTTextField.gif)
 
 
-## How to use them
+## How to use it
 
 将`ZTTextFiled.h`和`ZTTextField.m`文件拖入项目中，在需要用到的VC里将TextField属性的类型改为`ZTTextFileld`即可
 
