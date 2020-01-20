@@ -1,0 +1,22 @@
+{
+  "name": "ZTTextFieldLibrary",
+  "version": "0.1.0",
+  "summary": "A short description of ZTTextFieldLibrary.",
+  "description": "TODO: Add long description of the pod here.",
+  "homepage": "https://github.com/zhaitong1991@126.com/ZTTextFieldLibrary",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "zhaitong1991@126.com": "zt13936@ly.com"
+  },
+  "source": {
+    "git": "https://github.com/zhaitong1991@126.com/ZTTextFieldLibrary.git",
+    "tag": "0.1.0"
+  },
+  "platforms": {
+    "ios": "8.0"
+  },
+  "source_files": "ZTTextFieldLibrary/Classes/**/*"
+}
